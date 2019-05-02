@@ -19,6 +19,7 @@ class _AddDefectState extends State<AddDefect> {
   String _area;
   String _jobstatus;
   String _jobtype;
+  String _jct;
   TextEditingController _jobdetailsController;
   TextEditingController _jobremarksController;
 
@@ -350,7 +351,8 @@ class _AddDefectState extends State<AddDefect> {
                                               _jobstatus,
                                               _jobtype,
                                               _jobdetailsController.text,
-                                              _jobremarksController.text)
+                                              _jobremarksController.text,
+                                              DateTime.now().toString())
                                           .then((_) {
                                         Navigator.pop(context);
                                       });

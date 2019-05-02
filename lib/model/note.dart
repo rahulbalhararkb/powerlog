@@ -7,9 +7,10 @@ class Note {
   String _jobtype;
   String _jobdetails;
   String _jobremarks;
+  String _jct;
   
 
-  Note(this._id, this._unit, this._stage, this._area, this._jobstatus, this._jobtype, this._jobdetails, this._jobremarks);
+  Note(this._id, this._unit, this._stage, this._area, this._jobstatus, this._jobtype, this._jobdetails, this._jobremarks, this._jct);
 
   Note.map(dynamic obj) {
     this._id = obj['id'];
@@ -20,6 +21,7 @@ class Note {
     this._jobtype = obj['jobtype'];
     this._jobdetails = obj['jobdetails'];
     this._jobremarks = obj['jobremarks'];
+    this._jct = obj['jobtime'];
     
   }
 
@@ -31,6 +33,7 @@ class Note {
   String get jobtype => _jobtype;
   String get jobdetails => _jobdetails;
   String get jobremarks => _jobremarks;
+  String get jobtime => _jct;
   
 
   Map<String, dynamic> toMap() {
@@ -45,6 +48,7 @@ class Note {
     map['jobtype'] = _jobtype;
     map['jobdetails'] = _jobdetails;
     map['jobremarks'] = _jobremarks;
+    map['jobtime'] = _jct;
     
 
     return map;
@@ -59,6 +63,7 @@ class Note {
     this._jobtype = map['jobtype'];
     this._jobdetails = map['jobdetails'];
     this._jobremarks = map['jobremarks'];
+    this._jct = map['jobtime'];
     
   }
 }
