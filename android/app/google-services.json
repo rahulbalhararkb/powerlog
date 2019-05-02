@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "715017579992",
+    "firebase_url": "https://logbook-83ccc.firebaseio.com",
+    "project_id": "logbook-83ccc",
+    "storage_bucket": "logbook-83ccc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715017579992:android:5eadefccbdf5a494",
+        "android_client_info": {
+          "package_name": "com.abonline.powerlog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715017579992-u34g7tqpnvi1kgskbngdkrqkvinv2313.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvrdwrMv5Hqfzqzf3NwFk-5F-4cFmE4aA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715017579992-u34g7tqpnvi1kgskbngdkrqkvinv2313.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
