@@ -46,7 +46,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
                                       ),
                                     ),
                                     subtitle: Text(
-                                      '${widget.note.jobtime}/${widget.note.stage}/${widget.note.unit}/${widget.note.area}',
+                                      '${widget.note.jobtimeday}-${widget.note.jobtimemonth}-${widget.note.jobtimeyear}/${widget.note.jobtimehr}:${widget.note.jobtimemin}:${widget.note.jobtimesec}/${widget.note.stage}/${widget.note.unit}/${widget.note.area}',
                                       style: new TextStyle(
                                         fontSize: 18.0,
                                         fontStyle: FontStyle.italic,
