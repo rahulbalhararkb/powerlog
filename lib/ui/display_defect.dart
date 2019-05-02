@@ -140,34 +140,9 @@ class _DisplayDefectState extends State<DisplayDefect> {
                                     ),
                                   ],
                                 ),
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Card(
-                                child: Column(
-                                  children: <Widget>[
-                                    Divider(height: 5.0),
-                                    ListTile(
-                                      title: Text(
-                                        'JOB ENTRY TIME',
-                                        style: TextStyle(
-                                          fontSize: 20.0,
-                                          color: Colors.black87,
-                                        ),
-                                      ),
-                                      subtitle: Text(
-                                        '${widget.note.jobentrystamp}',
-                                        style: new TextStyle(
-                                          fontSize: 18.0,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                      ),
-                                      leading: const Icon(Icons.directions),
-                                    ),
-                                  ],
-                                ),
                               )
+                              
+                              
                             ],
                           ),
                         )

@@ -214,7 +214,7 @@ class _ShowEntriesState extends State<ShowEntries> {
       context,
       MaterialPageRoute(
           builder: (context) =>
-              AddDefect(Note(null, '', '', '', '', '', '', '', ''))),
+              AddDefect(Note(null, '', '', '', '', '', '', ''))),
     );
   }
 }

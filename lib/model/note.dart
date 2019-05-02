@@ -7,9 +7,9 @@ class Note {
   String _jobtype;
   String _jobdetails;
   String _jobremarks;
-  String _jobentrystamp;
+  
 
-  Note(this._id, this._unit, this._stage, this._area, this._jobstatus, this._jobtype, this._jobdetails, this._jobremarks, this._jobentrystamp);
+  Note(this._id, this._unit, this._stage, this._area, this._jobstatus, this._jobtype, this._jobdetails, this._jobremarks);
 
   Note.map(dynamic obj) {
     this._id = obj['id'];
@@ -20,7 +20,7 @@ class Note {
     this._jobtype = obj['jobtype'];
     this._jobdetails = obj['jobdetails'];
     this._jobremarks = obj['jobremarks'];
-    this._jobentrystamp = obj['jobentrystamp'];
+    
   }
 
   String get id => _id;
@@ -31,7 +31,7 @@ class Note {
   String get jobtype => _jobtype;
   String get jobdetails => _jobdetails;
   String get jobremarks => _jobremarks;
-  String get jobentrystamp => _jobentrystamp;
+  
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
@@ -45,7 +45,7 @@ class Note {
     map['jobtype'] = _jobtype;
     map['jobdetails'] = _jobdetails;
     map['jobremarks'] = _jobremarks;
-    map['jobentrystamp'] = _jobentrystamp;
+    
 
     return map;
   }
@@ -59,6 +59,6 @@ class Note {
     this._jobtype = map['jobtype'];
     this._jobdetails = map['jobdetails'];
     this._jobremarks = map['jobremarks'];
-    this._jobentrystamp = map['jobentrystamp'];
+    
   }
 }

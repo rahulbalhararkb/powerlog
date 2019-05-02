@@ -21,7 +21,6 @@ class _AddDefectState extends State<AddDefect> {
   String _jobtype;
   TextEditingController _jobdetailsController;
   TextEditingController _jobremarksController;
-  TextEditingController _jobentrystampController;
 
   @override
   void initState() {
@@ -30,8 +29,6 @@ class _AddDefectState extends State<AddDefect> {
         new TextEditingController(text: widget.note.jobdetails);
     _jobremarksController =
         new TextEditingController(text: widget.note.jobremarks);
-    _jobentrystampController =
-        new TextEditingController(text: widget.note.jobentrystamp);
   }
 
   @override
@@ -323,27 +320,7 @@ class _AddDefectState extends State<AddDefect> {
                           value.isEmpty ? 'Details can\'t be empty' : null,
                         onSaved: (value) => _details = value,*/
                               ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              TextFormField(
-                                maxLines: null,
-                                maxLengthEnforced: false,
-                                keyboardType: TextInputType.multiline,
-                                controller: _jobentrystampController,
-                                decoration: InputDecoration(
-                                    labelText: 'JOB ENTRY STAMP',
-                                    labelStyle: TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.green))),
-                                /* validator: (value) =>
-                          value.isEmpty ? 'Details can\'t be empty' : null,
-                        onSaved: (value) => _details = value,*/
-                              ),
+                             
                               SizedBox(height: 10.0),
                             ],
                           ),
@@ -373,8 +350,7 @@ class _AddDefectState extends State<AddDefect> {
                                               _jobstatus,
                                               _jobtype,
                                               _jobdetailsController.text,
-                                              _jobremarksController.text,
-                                              _jobentrystampController.text)
+                                              _jobremarksController.text)
                                           .then((_) {
                                         Navigator.pop(context);
                                       });
