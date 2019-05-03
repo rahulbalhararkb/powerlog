@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:powerlog/ui/new_feature.dart';
+//import 'package:powerlog/ui/new_feature.dart';
+import 'package:powerlog/ui/show_details.dart';
 import 'package:powerlog/ui/show_entries.dart';
 
 
@@ -73,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                NewFeature(title: widget.title)));
+                                ListPage(title: widget.title)));
                   },
                   child: Center(
                     child: Text(
