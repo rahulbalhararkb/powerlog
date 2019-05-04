@@ -161,14 +161,14 @@ class _ShowEntriesState extends State<ShowEntries> {
                       subtitle: Row(
                         children: <Widget>[
                           Expanded(
-                            flex: 4,
+                            
                             child: Padding(
                                 padding: EdgeInsets.only(left: 5.0,top: 10.0),
                                 child: Text('${items[position].stage}/${items[position].unit}/${items[position].area}',
                                     style: TextStyle(color: Colors.white,fontSize: 10.0))),
                           ),
                           Expanded(
-                            flex: 4,
+                           
                             child: Padding(
                                 padding: EdgeInsets.only(left: 10.0,top: 10.0),
                                 child: Text('${items[position].jobtype}/${items[position].jobstatus}',
@@ -234,14 +234,14 @@ class _ShowEntriesState extends State<ShowEntries> {
                       subtitle:Row(
                         children: <Widget>[
                           Expanded(
-                            flex: 4,
+                           
                             child: Padding(
                                 padding: EdgeInsets.only(left: 5.0,top: 10.0),
                                 child: Text('${items[_filterList[position]].stage}/${items[_filterList[position]].unit}/${items[_filterList[position]].area}',
                                     style: TextStyle(color: Colors.white,fontSize: 10.0))),
                           ),
                           Expanded(
-                            flex: 4,
+                          
                             child: Padding(
                                 padding: EdgeInsets.only(left: 10.0,top: 10.0),
                                 child: Text('${items[_filterList[position]].jobtype}/${items[_filterList[position]].jobstatus}',

@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:powerlog/model/note.dart';
 
-
 final CollectionReference noteCollection = Firestore.instance.collection('CNILOGBOOK');
 
 class FirebaseFirestoreService {
@@ -34,7 +33,7 @@ class FirebaseFirestoreService {
   }
 
   Stream<QuerySnapshot> getNoteList({int offset, int limit}) {
-    Stream<QuerySnapshot> snapshots = noteCollection.snapshots();
+    Stream<QuerySnapshot> snapshots = noteCollection.orderBy('jobtimestamp', descending: true).snapshots();
 
     if (offset != null) {
       snapshots = snapshots.skip(offset);
