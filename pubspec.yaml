@@ -29,6 +29,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   cloud_firestore: ^0.8.2+3
+  firebase_auth: 0.6.6
+  firebase_database: 1.0.5
 
 
 # For information on the generic Dart part of this file, see the
@@ -49,6 +51,7 @@ flutter:
   assets:
    - assets/PowerAppIcon.png
    - assets/Sps.gif
+   - assets/facebook.png
    - drive-steering-wheel.jpg
    - line.png
 
@@ -69,6 +72,11 @@ flutter:
         - asset: fonts/Raleway-Regular.ttf
         - asset: fonts/Raleway-Thin.ttf
           style: normal
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat-Bold.ttf
+          weight: 700
   # fonts:
   #   - family: Schyler
   #     fonts:

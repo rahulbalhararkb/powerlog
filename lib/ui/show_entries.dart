@@ -8,9 +8,9 @@ import 'package:powerlog/ui/display_defect.dart';
 
 //Represents the ShowEntriespage widget
 class ShowEntries extends StatefulWidget {
-  ShowEntries({Key key, this.title}) : super(key: key);
+  ShowEntries({Key key, this.uid}) : super(key: key);
 
-  final String title;
+  final String uid;
 
 //`createState()` will create the mutable state for this widget at
 //a given location in the tree.
@@ -86,7 +86,10 @@ class _ShowEntriesState extends State<ShowEntries> {
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         title: Padding(
           padding: const EdgeInsets.only(left: 90.0),
-          child: Text("LOGBOOK",style: TextStyle(color: Colors.white),),
+          child: Text(
+            "LOGBOOK",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
       body: new Container(
@@ -94,14 +97,20 @@ class _ShowEntriesState extends State<ShowEntries> {
         child: new Column(
           children: <Widget>[
             _createSearchView(),
-            SizedBox(height: 10.0,),
+            SizedBox(
+              height: 10.0,
+            ),
             _firstSearch ? _createListView() : _performSearch()
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
-        child: Icon(Icons.add,color: Color.fromRGBO(58, 66, 86, 1.0),size: 35.0,),
+        child: Icon(
+          Icons.add,
+          color: Color.fromRGBO(58, 66, 86, 1.0),
+          size: 35.0,
+        ),
         onPressed: () => _createNewNote(context),
       ),
     );
@@ -118,9 +127,10 @@ class _ShowEntriesState extends State<ShowEntries> {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: new TextField(
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 15.0),
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15.0),
           controller: _searchview,
-          decoration: InputDecoration.collapsed( 
+          decoration: InputDecoration.collapsed(
             hintText: "Search job details",
             hintStyle: new TextStyle(color: Colors.grey[300]),
           ),
@@ -137,7 +147,7 @@ class _ShowEntriesState extends State<ShowEntries> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemCount: items.length,
-          padding: const EdgeInsets.only(left: 5.0,right: 5.0,bottom: 5.0),
+          padding: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 5.0),
           itemBuilder: (context, position) {
             return Card(
               elevation: 8.0,
@@ -161,18 +171,20 @@ class _ShowEntriesState extends State<ShowEntries> {
                       subtitle: Row(
                         children: <Widget>[
                           Expanded(
-                            
                             child: Padding(
-                                padding: EdgeInsets.only(left: 5.0,top: 10.0),
-                                child: Text('${items[position].stage}/${items[position].unit}/${items[position].area}',
-                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                                padding: EdgeInsets.only(left: 5.0, top: 10.0),
+                                child: Text(
+                                    '${items[position].stage}/${items[position].unit}/${items[position].area}',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10.0))),
                           ),
                           Expanded(
-                           
                             child: Padding(
-                                padding: EdgeInsets.only(left: 10.0,top: 10.0),
-                                child: Text('${items[position].jobtype}/${items[position].jobstatus}',
-                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                                padding: EdgeInsets.only(left: 10.0, top: 10.0),
+                                child: Text(
+                                    '${items[position].jobtype}/${items[position].jobstatus}',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10.0))),
                           )
                         ],
                       ),
@@ -209,7 +221,7 @@ class _ShowEntriesState extends State<ShowEntries> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemCount: _filterList.length,
-         padding: const EdgeInsets.only(left: 5.0,right: 5.0,bottom: 5.0),
+          padding: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 5.0),
           itemBuilder: (context, position) {
             return Card(
               elevation: 8.0,
@@ -226,33 +238,34 @@ class _ShowEntriesState extends State<ShowEntries> {
                       title: Text(
                         '${items[_filterList[position]].jobdetails}',
                         style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold
-                        ),
+                            fontSize: 20.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
                       ),
-                      subtitle:Row(
+                      subtitle: Row(
                         children: <Widget>[
                           Expanded(
-                           
                             child: Padding(
-                                padding: EdgeInsets.only(left: 5.0,top: 10.0),
-                                child: Text('${items[_filterList[position]].stage}/${items[_filterList[position]].unit}/${items[_filterList[position]].area}',
-                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                                padding: EdgeInsets.only(left: 5.0, top: 10.0),
+                                child: Text(
+                                    '${items[_filterList[position]].stage}/${items[_filterList[position]].unit}/${items[_filterList[position]].area}',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10.0))),
                           ),
                           Expanded(
-                          
                             child: Padding(
-                                padding: EdgeInsets.only(left: 10.0,top: 10.0),
-                                child: Text('${items[_filterList[position]].jobtype}/${items[_filterList[position]].jobstatus}',
-                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                                padding: EdgeInsets.only(left: 10.0, top: 10.0),
+                                child: Text(
+                                    '${items[_filterList[position]].jobtype}/${items[_filterList[position]].jobstatus}',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10.0))),
                           )
                         ],
                       ),
-                       trailing: Icon(Icons.keyboard_arrow_right,
+                      trailing: Icon(Icons.keyboard_arrow_right,
                           color: Colors.white, size: 35.0),
-                      onTap: () =>
-                          _navigateToNote(context, items[_filterList[position]]),
+                      onTap: () => _navigateToNote(
+                          context, items[_filterList[position]]),
                     ),
                   ],
                 ),
@@ -273,8 +286,10 @@ class _ShowEntriesState extends State<ShowEntries> {
     await Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => AddDefect(Note(
-              null, '', '', '', '', '', '', '', '', '', '', '', '', '', ''))),
+          builder: (context) => AddDefect(
+              widget.uid,
+              Note(null, '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+                  ''))),
     );
   }
 }

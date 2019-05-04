@@ -5,8 +5,9 @@ import 'package:powerlog/service/firebase_firestore_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddDefect extends StatefulWidget {
+  final String uid;
   final Note note;
-  AddDefect(this.note);
+  AddDefect(this.uid, this.note);
 
   @override
   State<StatefulWidget> createState() => new _AddDefectState();
@@ -40,7 +41,10 @@ class _AddDefectState extends State<AddDefect> {
           backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
           title: Padding(
             padding: const EdgeInsets.only(left: 70.0),
-            child: Text('ADD DEFECT',style: TextStyle(color: Colors.white),),
+            child: Text(
+              'ADD DEFECT',
+              style: TextStyle(color: Colors.white),
+            ),
           )),
       body: Container(
           margin: EdgeInsets.all(5.0),
@@ -438,6 +442,7 @@ class _AddDefectState extends State<AddDefect> {
                                     onTap: () {
                                       db
                                           .createNote(
+                                              widget.uid,
                                               _unit,
                                               _stage,
                                               _area,

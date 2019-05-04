@@ -1,24 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:powerlog/auth/auth.dart';
 import 'package:powerlog/ui/new_feature.dart';
 import 'package:powerlog/ui/show_entries.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.auth, this.userId, this.onSignedOut})
+      : super(key: key);
 
-  final String title;
+  final BaseAuth auth;
+  final String userId;
+  final VoidCallback onSignedOut;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _signOut() async {
+    try {
+      await widget.auth.signOut();
+      widget.onSignedOut();
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-          title: Center(child: new Text(widget.title,style: TextStyle(color: Colors.white),)),
+          title: Center(
+              child: new Text(
+            "C&I LOGBOOK APP",
+            style: TextStyle(color: Colors.white),
+          )),
+          actions: <Widget>[
+            IconButton(
+                icon: new Icon(
+                  Icons.exit_to_app,
+                  color: Colors.white,
+                  size: 35.0,
+                ),
+                onPressed: () {
+                  _signOut();
+                }),
+          ],
         ),
         body: GridView.count(
           crossAxisCount: 2,
@@ -40,25 +68,31 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                ShowEntries(title: widget.title)));
+                            builder: (context) => ShowEntries(
+                                  uid: widget.userId,
+                                )));
                   },
                   child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      //crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                      Icon(Icons.library_books,color: Colors.white,size: 50.0,),
-                      SizedBox(height: 20.0,),
-                      Text(
-                        'LOGBOOK',
-                        style: TextStyle(
-                            fontSize: 20.0,
+                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                        //crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Icon(
+                            Icons.library_books,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Montserrat'),
-                      ),
-                    ]),
+                            size: 50.0,
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Text(
+                            'LOGBOOK',
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                          ),
+                        ]),
                   ),
                 ),
               ),
@@ -75,28 +109,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 elevation: 7.0,
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                NewFeature(title: widget.title)));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NewFeature()));
                   },
                   child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      //crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                      Icon(Icons.settings,color: Colors.white,size: 50.0,),
-                      SizedBox(height: 20.0,),
-                      Text(
-                        'NEW FEATURE',
-                        style: TextStyle(
-                            fontSize: 20.0,
+                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                        //crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Icon(
+                            Icons.settings,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Montserrat'),
-                      ),
-                    ]),
+                            size: 50.0,
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Text(
+                            'NEW FEATURE',
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                          ),
+                        ]),
                   ),
                 ),
               ),

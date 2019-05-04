@@ -2,21 +2,53 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:powerlog/model/note.dart';
 
-final CollectionReference noteCollection = Firestore.instance.collection('CNILOGBOOK');
+final CollectionReference noteCollection =
+    Firestore.instance.collection('CNILOGBOOK');
 
 class FirebaseFirestoreService {
-
-  static final FirebaseFirestoreService _instance = new FirebaseFirestoreService.internal();
+  static final FirebaseFirestoreService _instance =
+      new FirebaseFirestoreService.internal();
 
   factory FirebaseFirestoreService() => _instance;
 
   FirebaseFirestoreService.internal();
 
-  Future<Note> createNote(String unit, String stage,String area, String jobstatus,String jobtype, String jobdetails,String jobremarks,String jctday,String jctmonth,String jctyear,String jcthr,String jctmin,String jctsec,String jtimestamp) async {
+  Future<Note> createNote(
+      String uid,
+      String unit,
+      String stage,
+      String area,
+      String jobstatus,
+      String jobtype,
+      String jobdetails,
+      String jobremarks,
+      String jctday,
+      String jctmonth,
+      String jctyear,
+      String jcthr,
+      String jctmin,
+      String jctsec,
+      String jtimestamp) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(noteCollection.document());
 
-      final Note note = new Note(ds.documentID, unit, stage, area, jobstatus, jobtype, jobdetails, jobremarks, jctday,jctmonth,jctyear,jcthr,jctmin,jctsec,jtimestamp);
+      final Note note = new Note(
+          ds.documentID,
+          uid,
+          unit,
+          stage,
+          area,
+          jobstatus,
+          jobtype,
+          jobdetails,
+          jobremarks,
+          jctday,
+          jctmonth,
+          jctyear,
+          jcthr,
+          jctmin,
+          jctsec,
+          jtimestamp);
       final Map<String, dynamic> data = note.toMap();
 
       await tx.set(ds.reference, data);
@@ -33,7 +65,8 @@ class FirebaseFirestoreService {
   }
 
   Stream<QuerySnapshot> getNoteList({int offset, int limit}) {
-    Stream<QuerySnapshot> snapshots = noteCollection.orderBy('jobtimestamp', descending: true).snapshots();
+    Stream<QuerySnapshot> snapshots =
+        noteCollection.orderBy('jobtimestamp', descending: true).snapshots();
 
     if (offset != null) {
       snapshots = snapshots.skip(offset);

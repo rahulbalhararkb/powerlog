@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:powerlog/ui/home_page.dart';
+import 'package:powerlog/auth/auth.dart';
+import 'package:powerlog/auth/root_page.dart';
 import 'package:splashscreen/splashscreen.dart';
-
-
-
 
 class SplaseScr extends StatefulWidget {
   @override
@@ -16,7 +14,9 @@ class _SplaseScrState extends State<SplaseScr> {
     return Center(
       child: SplashScreen(
           seconds: 3,
-          navigateAfterSeconds: new MyHomePage(title: 'CNI LOGBOOK APP'),
+          navigateAfterSeconds: RootPage(
+            auth: Auth(),
+          ),
           title: new Text(
             'Welcome to CNI LOGBOOK APP',
             style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
@@ -31,4 +31,3 @@ class _SplaseScrState extends State<SplaseScr> {
     );
   }
 }
-

@@ -13,6 +13,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.grey,
         ),
-        home: SplaseScr());
-  }
+        home: SplaseScr()
+    );}
 }

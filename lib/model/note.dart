@@ -1,5 +1,6 @@
 class Note {
   String _id;
+  String _uid;
   String _unit;
   String _stage;
   String _area;
@@ -14,12 +15,28 @@ class Note {
   String _jctmin;
   String _jctsec;
   String _jtimestamp;
-  
 
-  Note(this._id, this._unit, this._stage, this._area, this._jobstatus, this._jobtype, this._jobdetails, this._jobremarks, this._jctday,this._jctmonth,this._jctyear,this._jcthr,this._jctmin,this._jctsec,this._jtimestamp);
+  Note(
+      this._id,
+      this._uid,
+      this._unit,
+      this._stage,
+      this._area,
+      this._jobstatus,
+      this._jobtype,
+      this._jobdetails,
+      this._jobremarks,
+      this._jctday,
+      this._jctmonth,
+      this._jctyear,
+      this._jcthr,
+      this._jctmin,
+      this._jctsec,
+      this._jtimestamp);
 
   Note.map(dynamic obj) {
     this._id = obj['id'];
+    this._uid = obj['uid'];
     this._unit = obj['unit'];
     this._stage = obj['stage'];
     this._area = obj['area'];
@@ -34,10 +51,10 @@ class Note {
     this._jctmin = obj['jobtimemin'];
     this._jctsec = obj['jobtimesec'];
     this._jtimestamp = obj['jobtimestamp'];
-    
   }
 
   String get id => _id;
+  String get uid => _uid;
   String get unit => _unit;
   String get stage => _stage;
   String get area => _area;
@@ -52,13 +69,14 @@ class Note {
   String get jobtimemin => _jctmin;
   String get jobtimesec => _jctsec;
   String get jobtimestamp => _jtimestamp;
-  
 
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
     if (_id != null) {
       map['id'] = _id;
     }
+
+    map['uid'] = _uid;
     map['unit'] = _unit;
     map['stage'] = _stage;
     map['area'] = _area;
@@ -73,13 +91,13 @@ class Note {
     map['jobtimemin'] = _jctmin;
     map['jobtimesec'] = _jctsec;
     map['jobtimestamp'] = _jtimestamp;
-    
 
     return map;
   }
 
   Note.fromMap(Map<String, dynamic> map) {
     this._id = map['id'];
+    this._uid = map['uid'];
     this._unit = map['unit'];
     this._stage = map['stage'];
     this._area = map['area'];
@@ -94,6 +112,5 @@ class Note {
     this._jctmin = map['jobtimemin'];
     this._jctsec = map['jobtimesec'];
     this._jtimestamp = map['jobtimestamp'];
-    
   }
 }
