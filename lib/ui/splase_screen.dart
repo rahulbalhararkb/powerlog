@@ -15,7 +15,7 @@ class _SplaseScrState extends State<SplaseScr> {
   Widget build(BuildContext context) {
     return Center(
       child: SplashScreen(
-          seconds: 5,
+          seconds: 3,
           navigateAfterSeconds: new MyHomePage(title: 'CNI LOGBOOK APP'),
           title: new Text(
             'Welcome to CNI LOGBOOK APP',

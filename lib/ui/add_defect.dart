@@ -38,7 +38,10 @@ class _AddDefectState extends State<AddDefect> {
       backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
           backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-          title: Text('ADD DEFECT')),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 70.0),
+            child: Text('ADD DEFECT',style: TextStyle(color: Colors.white),),
+          )),
       body: Container(
           margin: EdgeInsets.all(5.0),
           alignment: Alignment.center,

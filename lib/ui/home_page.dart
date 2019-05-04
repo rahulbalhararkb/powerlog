@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:powerlog/ui/new_feature.dart';
 import 'package:powerlog/ui/show_entries.dart';
 
-
-
-
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -18,10 +15,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+        backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-          title: Center(child: new Text(widget.title)),
+          title: Center(child: new Text(widget.title,style: TextStyle(color: Colors.white),)),
         ),
         body: GridView.count(
           crossAxisCount: 2,
@@ -47,14 +44,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ShowEntries(title: widget.title)));
                   },
                   child: Center(
-                    child: Text(
-                      'LOGBOOK',
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Montserrat'),
-                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      //crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                      Icon(Icons.library_books,color: Colors.white,size: 50.0,),
+                      SizedBox(height: 20.0,),
+                      Text(
+                        'LOGBOOK',
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat'),
+                      ),
+                    ]),
                   ),
                 ),
               ),
@@ -78,14 +82,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                 NewFeature(title: widget.title)));
                   },
                   child: Center(
-                    child: Text(
-                      'NEW FEATURE',
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Montserrat'),
-                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      //crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                      Icon(Icons.settings,color: Colors.white,size: 50.0,),
+                      SizedBox(height: 20.0,),
+                      Text(
+                        'NEW FEATURE',
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Montserrat'),
+                      ),
+                    ]),
                   ),
                 ),
               ),

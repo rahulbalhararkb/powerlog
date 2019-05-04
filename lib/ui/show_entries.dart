@@ -86,7 +86,7 @@ class _ShowEntriesState extends State<ShowEntries> {
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         title: Padding(
           padding: const EdgeInsets.only(left: 90.0),
-          child: Text("Job List"),
+          child: Text("LOGBOOK",style: TextStyle(color: Colors.white),),
         ),
       ),
       body: new Container(
