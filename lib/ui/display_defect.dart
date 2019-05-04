@@ -98,7 +98,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
                   fontStyle: FontStyle.italic,
                 ),
               ),
-              leading: const Icon(Icons.directions),
+              leading: const Icon(Icons.details),
             ),
           ],
         ),
@@ -118,7 +118,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
                   fontStyle: FontStyle.italic,
                 ),
               ),
-              leading: const Icon(Icons.directions),
+              leading: const Icon(Icons.details),
             ),
           ],
         ),
@@ -136,6 +136,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
     );
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       body: Container(
         child: ListView(shrinkWrap: true, children: <Widget>[
           Center(

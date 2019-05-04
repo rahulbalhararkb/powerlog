@@ -8,8 +8,13 @@ class NewFeature extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         appBar: AppBar(
-          title: Center(child: new Text(title)),
+          backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+          title: Padding(
+            padding: const EdgeInsets.only(left: 70.0),
+            child: new Text("New Feature"),
+          ),
         ),
         body: Container(
           margin: EdgeInsets.all(15.0),
@@ -28,7 +33,7 @@ class NewFeature extends StatelessWidget {
                     'Comming Soon...',
                     style: TextStyle(
                         fontSize: 20.0,
-                        color: Colors.black87,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat'),
                   ),

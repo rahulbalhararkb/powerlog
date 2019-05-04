@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:powerlog/ui/new_feature.dart';
-import 'package:powerlog/ui/show_details.dart';
+import 'package:powerlog/ui/new_feature.dart';
 import 'package:powerlog/ui/show_entries.dart';
 
 
@@ -19,7 +18,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         appBar: AppBar(
+          backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
           title: Center(child: new Text(widget.title)),
         ),
         body: GridView.count(
@@ -35,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Material(
                 borderRadius: BorderRadius.circular(20.0),
                 shadowColor: Colors.blueAccent,
-                color: Colors.blue,
+                color: Color.fromRGBO(64, 75, 96, .9),
                 elevation: 7.0,
                 child: GestureDetector(
                   onTap: () {
@@ -66,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Material(
                 borderRadius: BorderRadius.circular(20.0),
                 shadowColor: Colors.blueAccent,
-                color: Colors.blue,
+                color: Color.fromRGBO(64, 75, 96, .9),
                 elevation: 7.0,
                 child: GestureDetector(
                   onTap: () {
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                ListPage(title: widget.title)));
+                                NewFeature(title: widget.title)));
                   },
                   child: Center(
                     child: Text(

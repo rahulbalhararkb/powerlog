@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:powerlog/model/note.dart';
 import 'package:powerlog/service/firebase_firestore_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -34,7 +35,10 @@ class _AddDefectState extends State<AddDefect> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ADD DEFECT')),
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+      appBar: AppBar(
+          backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+          title: Text('ADD DEFECT')),
       body: Container(
           margin: EdgeInsets.all(5.0),
           alignment: Alignment.center,
@@ -49,11 +53,11 @@ class _AddDefectState extends State<AddDefect> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
                         Container(
-                          height: 50.0,
+                          height: 40.0,
                           width: 100.0,
                           child: Material(
                             shadowColor: Colors.blue[50],
-                            color: Colors.blue[100],
+                            color: Colors.blueGrey,
                             elevation: 7.0,
                             child: Center(
                               child: Text(
@@ -82,25 +86,41 @@ class _AddDefectState extends State<AddDefect> {
                                       child: CircularProgressIndicator());
                                 //var length = snapshot.data.documents.length;
                                 //DocumentSnapshot ds = snapshot.data.documents[length - 1];
-                                return DropdownButton(
-                                  isExpanded: true,
-                                  hint: Text(
-                                      'Please choose a Stage'), // Not necessary for Option 1
-                                  value: _stage,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      _stage = newValue;
-                                      print(_stage);
-                                    });
-                                  },
-                                  items: snapshot.data.documents
-                                      .map((DocumentSnapshot document) {
-                                    return DropdownMenuItem(
-                                        value: document.documentID,
-                                        child: Container(
-                                          child: new Text(document.documentID),
-                                        ));
-                                  }).toList(),
+                                return Center(
+                                  child: Theme(
+                                    data: Theme.of(context).copyWith(
+                                      canvasColor: Colors.grey[500],
+                                    ),
+                                    child: DropdownButton(
+                                      isExpanded: true,
+                                      hint: Text(
+                                        'Please choose a Stage',
+                                        style: TextStyle(
+                                            fontSize: 15.0,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600),
+                                      ), // Not necessary for Option 1
+                                      value: _stage,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          _stage = newValue;
+                                          print(_stage);
+                                        });
+                                      },
+                                      items: snapshot.data.documents
+                                          .map((DocumentSnapshot document) {
+                                        return DropdownMenuItem(
+                                            value: document.documentID,
+                                            child: Container(
+                                              child: new Text(
+                                                document.documentID,
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ));
+                                      }).toList(),
+                                    ),
+                                  ),
                                 );
                               }),
                         ),
@@ -119,25 +139,41 @@ class _AddDefectState extends State<AddDefect> {
                                       child: CircularProgressIndicator());
                                 //var length = snapshot.data.documents.length;
                                 //DocumentSnapshot ds = snapshot.data.documents[length - 1];
-                                return DropdownButton(
-                                  isExpanded: true,
-                                  hint: Text(
-                                      'Please choose a Unit'), // Not necessary for Option 1
-                                  value: _unit,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      _unit = newValue;
-                                      print(_unit);
-                                    });
-                                  },
-                                  items: snapshot.data.documents
-                                      .map((DocumentSnapshot document) {
-                                    return DropdownMenuItem(
-                                        value: document.documentID,
-                                        child: Container(
-                                          child: new Text(document.documentID),
-                                        ));
-                                  }).toList(),
+                                return Center(
+                                  child: Theme(
+                                    data: Theme.of(context).copyWith(
+                                      canvasColor: Colors.grey[500],
+                                    ),
+                                    child: DropdownButton(
+                                      isExpanded: true,
+                                      hint: Text(
+                                        'Please choose a Unit',
+                                        style: TextStyle(
+                                            fontSize: 15.0,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600),
+                                      ), // Not necessary for Option 1
+                                      value: _unit,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          _unit = newValue;
+                                          print(_unit);
+                                        });
+                                      },
+                                      items: snapshot.data.documents
+                                          .map((DocumentSnapshot document) {
+                                        return DropdownMenuItem(
+                                            value: document.documentID,
+                                            child: Container(
+                                              child: new Text(
+                                                document.documentID,
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ));
+                                      }).toList(),
+                                    ),
+                                  ),
                                 );
                               }),
                         ),
@@ -157,34 +193,50 @@ class _AddDefectState extends State<AddDefect> {
                                 //var length = snapshot.data.documents.length;
                                 //DocumentSnapshot ds = snapshot.data.documents[length - 1];
 
-                                return DropdownButton(
-                                  isExpanded: true,
-                                  hint: Text(
-                                      'Please choose a Area'), // Not necessary for Option 1
-                                  value: _area,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      _area = newValue;
-                                      print(_area);
-                                    });
-                                  },
-                                  items: snapshot.data.documents
-                                      .map((DocumentSnapshot document) {
-                                    return DropdownMenuItem(
-                                        value: document.documentID,
-                                        child: Container(
-                                          child: new Text(document.documentID),
-                                        ));
-                                  }).toList(),
+                                return Center(
+                                  child: Theme(
+                                    data: Theme.of(context).copyWith(
+                                      canvasColor: Colors.grey[500],
+                                    ),
+                                    child: DropdownButton(
+                                      isExpanded: true,
+                                      hint: Text(
+                                        'Please choose a Area',
+                                        style: TextStyle(
+                                            fontSize: 15.0,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600),
+                                      ), // Not necessary for Option 1
+                                      value: _area,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          _area = newValue;
+                                          print(_area);
+                                        });
+                                      },
+                                      items: snapshot.data.documents
+                                          .map((DocumentSnapshot document) {
+                                        return DropdownMenuItem(
+                                            value: document.documentID,
+                                            child: Container(
+                                              child: new Text(
+                                                document.documentID,
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ));
+                                      }).toList(),
+                                    ),
+                                  ),
                                 );
                               }),
                         ),
                         Container(
-                          height: 50.0,
+                          height: 40.0,
                           width: 100.0,
                           child: Material(
                             shadowColor: Colors.blue[50],
-                            color: Colors.blue[100],
+                            color: Colors.blueGrey,
                             elevation: 7.0,
                             child: Center(
                               child: Text(
@@ -214,25 +266,41 @@ class _AddDefectState extends State<AddDefect> {
                                 //var length = snapshot.data.documents.length;
                                 //DocumentSnapshot ds = snapshot.data.documents[length - 1];
 
-                                return DropdownButton(
-                                  isExpanded: true,
-                                  hint: Text(
-                                      'Please choose a Job Type'), // Not necessary for Option 1
-                                  value: _jobtype,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      _jobtype = newValue;
-                                      print(_jobtype);
-                                    });
-                                  },
-                                  items: snapshot.data.documents
-                                      .map((DocumentSnapshot document) {
-                                    return DropdownMenuItem(
-                                        value: document.documentID,
-                                        child: Container(
-                                          child: new Text(document.documentID),
-                                        ));
-                                  }).toList(),
+                                return Center(
+                                  child: Theme(
+                                    data: Theme.of(context).copyWith(
+                                      canvasColor: Colors.grey[500],
+                                    ),
+                                    child: DropdownButton(
+                                      isExpanded: true,
+                                      hint: Text(
+                                        'Please choose a Job Type',
+                                        style: TextStyle(
+                                            fontSize: 15.0,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600),
+                                      ), // Not necessary for Option 1
+                                      value: _jobtype,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          _jobtype = newValue;
+                                          print(_jobtype);
+                                        });
+                                      },
+                                      items: snapshot.data.documents
+                                          .map((DocumentSnapshot document) {
+                                        return DropdownMenuItem(
+                                            value: document.documentID,
+                                            child: Container(
+                                              child: new Text(
+                                                document.documentID,
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ));
+                                      }).toList(),
+                                    ),
+                                  ),
                                 );
                               }),
                         ),
@@ -252,25 +320,41 @@ class _AddDefectState extends State<AddDefect> {
                                 //var length = snapshot.data.documents.length;
                                 //DocumentSnapshot ds = snapshot.data.documents[length - 1];
 
-                                return DropdownButton(
-                                  isExpanded: true,
-                                  hint: Text(
-                                      'Please choose a Job Status'), // Not necessary for Option 1
-                                  value: _jobstatus,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      _jobstatus = newValue;
-                                      print(_jobstatus);
-                                    });
-                                  },
-                                  items: snapshot.data.documents
-                                      .map((DocumentSnapshot document) {
-                                    return DropdownMenuItem(
-                                        value: document.documentID,
-                                        child: Container(
-                                          child: new Text(document.documentID),
-                                        ));
-                                  }).toList(),
+                                return Center(
+                                  child: Theme(
+                                    data: Theme.of(context).copyWith(
+                                      canvasColor: Colors.grey[500],
+                                    ),
+                                    child: DropdownButton(
+                                      isExpanded: true,
+                                      hint: Text(
+                                        'Please choose a Job Status',
+                                        style: TextStyle(
+                                            fontSize: 15.0,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w600),
+                                      ), // Not necessary for Option 1
+                                      value: _jobstatus,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          _jobstatus = newValue;
+                                          print(_jobstatus);
+                                        });
+                                      },
+                                      items: snapshot.data.documents
+                                          .map((DocumentSnapshot document) {
+                                        return DropdownMenuItem(
+                                            value: document.documentID,
+                                            child: Container(
+                                              child: new Text(
+                                                document.documentID,
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ));
+                                      }).toList(),
+                                    ),
+                                  ),
                                 );
                               }),
                         ),
@@ -281,6 +365,10 @@ class _AddDefectState extends State<AddDefect> {
                           child: Column(
                             children: <Widget>[
                               TextFormField(
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                                 maxLines: null,
                                 maxLengthEnforced: false,
                                 keyboardType: TextInputType.multiline,
@@ -290,7 +378,7 @@ class _AddDefectState extends State<AddDefect> {
                                     labelStyle: TextStyle(
                                         fontFamily: 'Montserrat',
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey),
+                                        color: Colors.grey[300]),
                                     focusedBorder: UnderlineInputBorder(
                                         borderSide:
                                             BorderSide(color: Colors.green))),
@@ -303,6 +391,10 @@ class _AddDefectState extends State<AddDefect> {
                                 height: 10.0,
                               ),
                               TextFormField(
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                                 maxLines: null,
                                 maxLengthEnforced: false,
                                 keyboardType: TextInputType.multiline,
@@ -312,7 +404,7 @@ class _AddDefectState extends State<AddDefect> {
                                     labelStyle: TextStyle(
                                         fontFamily: 'Montserrat',
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey),
+                                        color: Colors.grey[300]),
                                     focusedBorder: UnderlineInputBorder(
                                         borderSide:
                                             BorderSide(color: Colors.green))),
@@ -320,7 +412,6 @@ class _AddDefectState extends State<AddDefect> {
                           value.isEmpty ? 'Details can\'t be empty' : null,
                         onSaved: (value) => _details = value,*/
                               ),
-                             
                               SizedBox(height: 10.0),
                             ],
                           ),
@@ -337,8 +428,8 @@ class _AddDefectState extends State<AddDefect> {
                                 width: 150.0,
                                 child: Material(
                                   borderRadius: BorderRadius.circular(20.0),
-                                  shadowColor: Colors.blueAccent,
-                                  color: Colors.blue,
+                                  shadowColor: Colors.lightBlueAccent,
+                                  color: Color.fromRGBO(64, 75, 96, .9),
                                   elevation: 7.0,
                                   child: GestureDetector(
                                     onTap: () {
@@ -364,7 +455,7 @@ class _AddDefectState extends State<AddDefect> {
                                     },
                                     child: Center(
                                       child: Text(
-                                        'ADD',
+                                        'ADD JOB',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,

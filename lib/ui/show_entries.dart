@@ -80,20 +80,28 @@ class _ShowEntriesState extends State<ShowEntries> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: new AppBar(
-        title: Text(widget.title),
+        elevation: 0.1,
+        backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 90.0),
+          child: Text("Job List"),
+        ),
       ),
       body: new Container(
-        margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 10.0),
+        margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 2.0),
         child: new Column(
           children: <Widget>[
             _createSearchView(),
+            SizedBox(height: 10.0,),
             _firstSearch ? _createListView() : _performSearch()
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        backgroundColor: Colors.white,
+        child: Icon(Icons.add,color: Color.fromRGBO(58, 66, 86, 1.0),size: 35.0,),
         onPressed: () => _createNewNote(context),
       ),
     );
@@ -102,15 +110,22 @@ class _ShowEntriesState extends State<ShowEntries> {
 //Create a SearchView
   Widget _createSearchView() {
     return new Container(
-      margin: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-      decoration: BoxDecoration(border: Border.all(color: Colors.blue,width: 2.0),borderRadius: BorderRadius.circular(15.0),),
-      child: new TextField(
-        controller: _searchview,
-        decoration: InputDecoration(
-          hintText: "Search job details",
-          hintStyle: new TextStyle(color: Colors.grey[600]),
+      margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 2.0),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white, width: 2.0),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: new TextField(
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 15.0),
+          controller: _searchview,
+          decoration: InputDecoration.collapsed( 
+            hintText: "Search job details",
+            hintStyle: new TextStyle(color: Colors.grey[300]),
+          ),
+          textAlign: TextAlign.center,
         ),
-        textAlign: TextAlign.center,
       ),
     );
   }
@@ -119,32 +134,54 @@ class _ShowEntriesState extends State<ShowEntries> {
   Widget _createListView() {
     return new Flexible(
       child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
           itemCount: items.length,
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.only(left: 5.0,right: 5.0,bottom: 5.0),
           itemBuilder: (context, position) {
             return Card(
-              child: Column(
-                children: <Widget>[
-                  Divider(height: 5.0),
-                  ListTile(
-                    title: Text(
-                      '${items[position].jobdetails}',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black87,
+              elevation: 8.0,
+              margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+              child: Container(
+                decoration:
+                    BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                child: Column(
+                  children: <Widget>[
+                    Divider(height: 5.0),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 10.0),
+                      title: Text(
+                        '${items[position].jobdetails}',
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    subtitle: Text(
-                      '${items[position].jobstatus}',
-                      style: new TextStyle(
-                        fontSize: 18.0,
-                        fontStyle: FontStyle.italic,
+                      subtitle: Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 4,
+                            child: Padding(
+                                padding: EdgeInsets.only(left: 5.0,top: 10.0),
+                                child: Text('${items[position].stage}/${items[position].unit}/${items[position].area}',
+                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                          ),
+                          Expanded(
+                            flex: 4,
+                            child: Padding(
+                                padding: EdgeInsets.only(left: 10.0,top: 10.0),
+                                child: Text('${items[position].jobtype}/${items[position].jobstatus}',
+                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                          )
+                        ],
                       ),
+                      trailing: Icon(Icons.keyboard_arrow_right,
+                          color: Colors.white, size: 35.0),
+                      onTap: () => _navigateToNote(context, items[position]),
                     ),
-                    leading: const Icon(Icons.arrow_forward),
-                    onTap: () => _navigateToNote(context, items[position]),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           }),
@@ -169,33 +206,56 @@ class _ShowEntriesState extends State<ShowEntries> {
   Widget _createFilteredListView() {
     return new Flexible(
       child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
           itemCount: _filterList.length,
-          padding: const EdgeInsets.all(5.0),
+         padding: const EdgeInsets.only(left: 5.0,right: 5.0,bottom: 5.0),
           itemBuilder: (context, position) {
             return Card(
-              child: Column(
-                children: <Widget>[
-                  Divider(height: 5.0),
-                  ListTile(
-                    title: Text(
-                      '${items[_filterList[position]].jobdetails}',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black87,
+              elevation: 8.0,
+              margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+              child: Container(
+                decoration:
+                    BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+                child: Column(
+                  children: <Widget>[
+                    Divider(height: 5.0),
+                    ListTile(
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 10.0),
+                      title: Text(
+                        '${items[_filterList[position]].jobdetails}',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
-                    ),
-                    subtitle: Text(
-                      '${items[_filterList[position]].jobstatus}',
-                      style: new TextStyle(
-                        fontSize: 18.0,
-                        fontStyle: FontStyle.italic,
+                      subtitle:Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 4,
+                            child: Padding(
+                                padding: EdgeInsets.only(left: 5.0,top: 10.0),
+                                child: Text('${items[_filterList[position]].stage}/${items[_filterList[position]].unit}/${items[_filterList[position]].area}',
+                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                          ),
+                          Expanded(
+                            flex: 4,
+                            child: Padding(
+                                padding: EdgeInsets.only(left: 10.0,top: 10.0),
+                                child: Text('${items[_filterList[position]].jobtype}/${items[_filterList[position]].jobstatus}',
+                                    style: TextStyle(color: Colors.white,fontSize: 10.0))),
+                          )
+                        ],
                       ),
+                       trailing: Icon(Icons.keyboard_arrow_right,
+                          color: Colors.white, size: 35.0),
+                      onTap: () =>
+                          _navigateToNote(context, items[_filterList[position]]),
                     ),
-                    leading: const Icon(Icons.arrow_forward),
-                    onTap: () =>
-                        _navigateToNote(context, items[_filterList[position]]),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           }),
@@ -213,8 +273,8 @@ class _ShowEntriesState extends State<ShowEntries> {
     await Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) =>
-              AddDefect(Note(null, '', '', '', '', '', '', '','','','','','','',''))),
+          builder: (context) => AddDefect(Note(
+              null, '', '', '', '', '', '', '', '', '', '', '', '', '', ''))),
     );
   }
 }
