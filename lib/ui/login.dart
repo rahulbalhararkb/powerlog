@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   String _repassword;
   String _name;
   String _mobile;
+  String _employee;
   FormType _formType = FormType.login;
 
   bool validateAndSave() {
@@ -49,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
             'email': _email,
             'name': _name,
             'mobilenumber': _mobile,
+            'employeenumber': _employee,
             'password': _password,
             'repassword': _repassword
           });
@@ -183,6 +185,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                         decoration: InputDecoration(
                             labelText: 'Email',
                             labelStyle: TextStyle(
@@ -198,6 +204,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 10.0),
                       TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                         decoration: InputDecoration(
                             labelText: 'Password',
                             labelStyle: TextStyle(
@@ -232,6 +242,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                         decoration: InputDecoration(
                             labelText: 'Email',
                             labelStyle: TextStyle(
@@ -248,6 +262,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 10.0),
                       TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                         decoration: InputDecoration(
                             labelText: 'Name ',
                             labelStyle: TextStyle(
@@ -262,6 +280,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 10.0),
                       TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                         decoration: InputDecoration(
                             labelText: 'Mobile Number ',
                             labelStyle: TextStyle(
@@ -275,10 +297,32 @@ class _LoginPageState extends State<LoginPage> {
                             : null,
                         onSaved: (value) => _mobile = value,
                       ),
+                      TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
+                        decoration: InputDecoration(
+                            labelText: 'Employee Number ',
+                            labelStyle: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green))),
+                        validator: (value) => value.isEmpty
+                            ? 'Employee Number can\'t be empty'
+                            : null,
+                        onSaved: (value) => _employee = value,
+                      ),
                       SizedBox(height: 10.0),
                       TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                         decoration: InputDecoration(
-                            labelText: 'PASSWORD ',
+                            labelText: 'Password ',
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -292,6 +336,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 10.0),
                       TextFormField(
+                        style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18.0),
                         decoration: InputDecoration(
                             labelText: 'Retype Password ',
                             labelStyle: TextStyle(
