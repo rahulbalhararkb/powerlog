@@ -373,22 +373,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.only(top: 15.0, left: 20.0, right: 20.0),
             child: Column(
               children: <Widget>[
-                SizedBox(height: 5.0),
-                /* Container(
-                  alignment: Alignment(1.0, 0.0),
-                  padding: EdgeInsets.only(top: 15.0, left: 20.0),
-                  child: InkWell(
-                    child: Text(
-                      'Forgot Password',
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Montserrat',
-                          decoration: TextDecoration.underline),
-                    ),
-                  ),
-                ),*/
-                SizedBox(height: 20.0),
+                SizedBox(height: 25.0),
                 Container(
                   height: 40.0,
                   child: Material(
@@ -413,34 +398,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 20.0),
-                /* Container(
-                  height: 40.0,
-                  color: Colors.transparent,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                            color: Colors.black,
-                            style: BorderStyle.solid,
-                            width: 1.0),
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(20.0)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Center(
-                          child: ImageIcon(AssetImage('assets/facebook.png')),
-                        ),
-                        SizedBox(width: 10.0),
-                        Center(
-                          child: Text('Log in with facebook',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Montserrat')),
-                        )
-                      ],
-                    ),
-                  ),
-               )*/
               ],
             )),
         SizedBox(height: 15.0),
