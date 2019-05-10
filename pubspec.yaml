@@ -48,6 +48,22 @@ flutter:
    - assets/facebook.png
    - drive-steering-wheel.jpg
    - line.png
+   - assets/images/dev.png
+   - assets/images/barackobama.png
+   - assets/images/charliechaplin.png
+   - assets/images/batman.png
+   - assets/images/dalailama.png
+   - assets/images/mahatmagandhi.png
+   - assets/images/mickjagger.png
+   - assets/images/nativeman.png
+   - assets/images/nikolatesla.png
+   - assets/images/robot.png
+   - assets/images/captain.png
+   - assets/pimage/div.png
+   - assets/pimage/dvm1.jpg
+   - assets/pimage/1.png
+   - assets/pimage/2.png
+   - assets/pimage/3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
