@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:powerlog/db_helper/db_helper.dart';
-import 'package:powerlog/modal_class/notes.dart';
-import 'package:powerlog/screens/note_detail.dart';
+import 'package:powerlog/service/db_helper.dart';
+import 'package:powerlog/model/notes.dart';
+import 'package:powerlog/ui/note_detail.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:powerlog/utils/widgets.dart';
 import 'package:sqflite/sqflite.dart';
@@ -28,23 +28,34 @@ class NoteListState extends State<NoteList> {
     }
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: AppBar(
-        title: Text('Notes', style: Theme.of(context).textTheme.headline),
+        
+        title: Text(
+          'Notes',
+          style: TextStyle(
+              fontFamily: 'Sans',
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: 24),
+        ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         leading: IconButton(
           icon: Icon(
-            Icons.menu,
-            color: Colors.black,
+            Icons.arrow_back,
+            color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         actions: <Widget>[
           IconButton(
             icon: Icon(
               axisCount == 2 ? Icons.list : Icons.grid_on,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () {
               setState(() {
@@ -60,8 +71,14 @@ class NoteListState extends State<NoteList> {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Text('Click on the add button to add a new note!',
-                      style: Theme.of(context).textTheme.body1),
+                  child: Text(
+                    'Click on the add button to add a new note!',
+                    style: TextStyle(
+                        fontFamily: 'Sans',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 20),
+                  ),
                 ),
               ),
             )
@@ -71,8 +88,11 @@ class NoteListState extends State<NoteList> {
           navigateToDetail(Note('', '', 3, 0), 'Add Note');
         },
         tooltip: 'Add Note',
-        shape: CircleBorder(side: BorderSide(color: Colors.black, width: 2.0)),
-        child: Icon(Icons.add, color: Colors.black),
+        child: Icon(
+          Icons.add,
+          color: Color.fromRGBO(58, 66, 86, 1.0),
+          size: 35.0,
+        ),
         backgroundColor: Colors.white,
       ),
     );
@@ -105,7 +125,11 @@ class NoteListState extends State<NoteList> {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               this.noteList[index].title,
-                              style: Theme.of(context).textTheme.body1,
+                              style: TextStyle(
+                                  fontFamily: 'Sans',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 20),
                             ),
                           ),
                         ),
@@ -124,10 +148,15 @@ class NoteListState extends State<NoteList> {
                         children: <Widget>[
                           Expanded(
                             child: Text(
-                                this.noteList[index].description == null
-                                    ? ''
-                                    : this.noteList[index].description,
-                                style: Theme.of(context).textTheme.body2),
+                              this.noteList[index].description == null
+                                  ? ''
+                                  : this.noteList[index].description,
+                              style: TextStyle(
+                                  fontFamily: 'Sans',
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                  fontSize: 18),
+                            ),
                           )
                         ],
                       ),
@@ -135,8 +164,14 @@ class NoteListState extends State<NoteList> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          Text(this.noteList[index].date,
-                              style: Theme.of(context).textTheme.subtitle),
+                          Text(
+                            this.noteList[index].date,
+                            style: TextStyle(
+                                fontFamily: 'Sans',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                                fontSize: 14),
+                          ),
                         ])
                   ],
                 ),
@@ -185,18 +220,6 @@ class NoteListState extends State<NoteList> {
     }
   }
 
-  // void _delete(BuildContext context, Note note) async {
-  //   int result = await databaseHelper.deleteNote(note.id);
-  //   if (result != 0) {
-  //     _showSnackBar(context, 'Note Deleted Successfully');
-  //     updateListView();
-  //   }
-  // }
-
-  // void _showSnackBar(BuildContext context, String message) {
-  //   final snackBar = SnackBar(content: Text(message));
-  //   Scaffold.of(context).showSnackBar(snackBar);
-  // }
 
   void navigateToDetail(Note note, String title) async {
     bool result = await Navigator.push(context,

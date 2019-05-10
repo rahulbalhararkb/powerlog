@@ -58,7 +58,16 @@ class _AddDefectState extends State<AddDefect> {
               'ADD DEFECT',
               style: TextStyle(color: Colors.white),
             ),
-          )),
+          ),
+          leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),),
       body: Container(
           margin: EdgeInsets.all(5.0),
           alignment: Alignment.center,

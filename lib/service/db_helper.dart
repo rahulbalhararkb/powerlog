@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 import 'package:path_provider/path_provider.dart';
-import 'package:powerlog/modal_class/notes.dart';
+import 'package:powerlog/model/notes.dart';
 
 class DatabaseHelper {
   static DatabaseHelper _databaseHelper; // Singleton DatabaseHelper

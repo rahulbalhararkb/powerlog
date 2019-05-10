@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:powerlog/db_helper/db_helper.dart';
-import 'package:powerlog/modal_class/notes.dart';
+import 'package:powerlog/service/db_helper.dart';
+import 'package:powerlog/model/notes.dart';
 import 'package:powerlog/utils/widgets.dart';
 
 class NoteDetail extends StatefulWidget {
@@ -42,7 +42,11 @@ class NoteDetailState extends State<NoteDetail> {
             elevation: 0,
             title: Text(
               appBarTitle,
-              style: Theme.of(context).textTheme.headline,
+              style: TextStyle(
+                  fontFamily: 'Sans',
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 24),
             ),
             backgroundColor: colors[color],
             leading: IconButton(
@@ -95,7 +99,11 @@ class NoteDetailState extends State<NoteDetail> {
                   padding: EdgeInsets.all(16.0),
                   child: TextField(
                     controller: titleController,
-                    style: Theme.of(context).textTheme.body1,
+                    style: TextStyle(
+                        fontFamily: 'Sans',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 20),
                     onChanged: (value) {
                       updateTitle();
                     },
@@ -111,7 +119,11 @@ class NoteDetailState extends State<NoteDetail> {
                       keyboardType: TextInputType.multiline,
                       maxLines: 10,
                       controller: descriptionController,
-                      style: Theme.of(context).textTheme.body2,
+                      style: TextStyle(
+                          fontFamily: 'Sans',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                          fontSize: 18),
                       onChanged: (value) {
                         updateDescription();
                       },
@@ -136,27 +148,37 @@ class NoteDetailState extends State<NoteDetail> {
               borderRadius: BorderRadius.all(Radius.circular(10.0))),
           title: Text(
             "Discard Changes?",
-            style: Theme.of(context).textTheme.body1,
+            style: TextStyle(
+                fontFamily: 'Sans',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 20),
           ),
           content: Text("Are you sure you want to discard changes?",
-              style: Theme.of(context).textTheme.body2),
+              style: TextStyle(
+                  fontFamily: 'Sans',
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black,
+                  fontSize: 18)),
           actions: <Widget>[
             FlatButton(
               child: Text("No",
-                  style: Theme.of(context)
-                      .textTheme
-                      .body1
-                      .copyWith(color: Colors.purple)),
+                  style: TextStyle(
+                      fontFamily: 'Sans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                      fontSize: 20)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             FlatButton(
               child: Text("Yes",
-                  style: Theme.of(context)
-                      .textTheme
-                      .body1
-                      .copyWith(color: Colors.purple)),
+                  style: TextStyle(
+                      fontFamily: 'Sans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                      fontSize: 20)),
               onPressed: () {
                 Navigator.of(context).pop();
                 moveToLastScreen();
@@ -177,17 +199,26 @@ class NoteDetailState extends State<NoteDetail> {
               borderRadius: BorderRadius.all(Radius.circular(10.0))),
           title: Text(
             "Title is empty!",
-            style: Theme.of(context).textTheme.body1,
+            style: TextStyle(
+                fontFamily: 'Sans',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 20),
           ),
           content: Text('The title of the note cannot be empty.',
-              style: Theme.of(context).textTheme.body2),
+              style: TextStyle(
+                  fontFamily: 'Sans',
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black,
+                  fontSize: 18)),
           actions: <Widget>[
             FlatButton(
               child: Text("Okay",
-                  style: Theme.of(context)
-                      .textTheme
-                      .body1
-                      .copyWith(color: Colors.purple)),
+                  style: TextStyle(
+                      fontFamily: 'Sans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                      fontSize: 20)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -207,27 +238,37 @@ class NoteDetailState extends State<NoteDetail> {
               borderRadius: BorderRadius.all(Radius.circular(10.0))),
           title: Text(
             "Delete Note?",
-            style: Theme.of(context).textTheme.body1,
+            style: TextStyle(
+                fontFamily: 'Sans',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 20),
           ),
           content: Text("Are you sure you want to delete this note?",
-              style: Theme.of(context).textTheme.body2),
+              style: TextStyle(
+                  fontFamily: 'Sans',
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black,
+                  fontSize: 18)),
           actions: <Widget>[
             FlatButton(
               child: Text("No",
-                  style: Theme.of(context)
-                      .textTheme
-                      .body1
-                      .copyWith(color: Colors.purple)),
+                  style: TextStyle(
+                      fontFamily: 'Sans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                      fontSize: 20)),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             FlatButton(
               child: Text("Yes",
-                  style: Theme.of(context)
-                      .textTheme
-                      .body1
-                      .copyWith(color: Colors.purple)),
+                  style: TextStyle(
+                      fontFamily: 'Sans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                      fontSize: 20)),
               onPressed: () {
                 Navigator.of(context).pop();
                 _delete();

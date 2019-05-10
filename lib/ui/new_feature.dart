@@ -14,6 +14,15 @@ class NewFeature extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
           ),
+          leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         ),
         body: Container(
           margin: EdgeInsets.all(15.0),

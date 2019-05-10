@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:powerlog/auth/auth.dart';
+import 'package:powerlog/ui/note_list.dart';
 import 'package:powerlog/ui/new_feature.dart';
-import 'package:powerlog/ui/note_book.dart';
 import 'package:powerlog/ui/show_entries.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -111,14 +111,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NoteBook()));
+                        MaterialPageRoute(builder: (context) => NoteList()));
                   },
                   child: Center(
                     child: Column(mainAxisAlignment: MainAxisAlignment.center,
                         //crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
                           Icon(
-                            Icons.settings,
+                            Icons.note_add,
                             color: Colors.white,
                             size: 50.0,
                           ),

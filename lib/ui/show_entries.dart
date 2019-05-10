@@ -91,6 +91,15 @@ class _ShowEntriesState extends State<ShowEntries> {
             style: TextStyle(color: Colors.white),
           ),
         ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: new Container(
         margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 2.0),
@@ -106,6 +115,7 @@ class _ShowEntriesState extends State<ShowEntries> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
+        tooltip: 'Add Job',
         child: Icon(
           Icons.add,
           color: Color.fromRGBO(58, 66, 86, 1.0),
