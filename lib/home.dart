@@ -164,8 +164,7 @@ class Homeani extends AnimatedWidget {
                                   child: new Padding(
                                       padding: const EdgeInsets.all(32.0),
                                       child: new Text(
-                                          'made with love .via Divyam joshi '
-                                              'if you like my work star my repo and thats motivate me ',
+                                          'Say Hello to Us',
                                           textAlign: TextAlign.center,
                                           style: new TextStyle(
                                               color:
