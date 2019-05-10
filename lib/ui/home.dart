@@ -85,7 +85,7 @@ class Homeani extends AnimatedWidget {
                     padding: EdgeInsets.only(
                       bottom: 30.0,
                       left: 15.0,
-                      right: 65.0,
+                      right: 150.0,
                     ),
                   ),
                 ),
@@ -99,7 +99,7 @@ class Homeani extends AnimatedWidget {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(employee.asset),
-                        fit: BoxFit.fitHeight,
+                        //fit: BoxFit.fitHeight,
                       ),
                     ),
                   ),
@@ -164,7 +164,7 @@ class Homeani extends AnimatedWidget {
                                   child: new Padding(
                                       padding: const EdgeInsets.all(32.0),
                                       child: new Text(
-                                          'Say Hello to Us',
+                                          'Welcome to C&I app',
                                           textAlign: TextAlign.center,
                                           style: new TextStyle(
                                               color:

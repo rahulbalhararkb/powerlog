@@ -46,7 +46,8 @@ final List<Employees> employees = [
       workarea: "C&I VSTPS",
       emailid: "harjeetsingh@ntpc.co.in",
       image: "hs.png",
-      color: Color.fromRGBO(234, 188, 48, 1.0)),
+      color: Color.fromRGBO(167, 163, 156, 1.0)),
+      
   Employees(
       id: 2,
       name: 'Manish Khetrapal',
@@ -56,7 +57,7 @@ final List<Employees> employees = [
       workarea: "C&I Stage 3 and stage 5",
       emailid: "manishkhetrapal@ntpc.co.in",
       image: "mk.png",
-      color: Color.fromRGBO(167, 163, 156, 1.0)),
+      color: Color.fromRGBO(0, 191, 255, 1.0)),
   Employees(
       id: 3,
       name: 'Neeraj Agarwal',
@@ -66,7 +67,7 @@ final List<Employees> employees = [
       workarea: "C&I Stage 2",
       emailid: "neerajagrawal@ntpc.co.in",
       image: "na.png",
-      color: Color.fromRGBO(200, 76, 42, 1.0)),
+      color: Color.fromRGBO(0, 230, 115, 1.0)),
   Employees(
       id: 4,
       name: 'Ashish Agrawal',
@@ -76,7 +77,7 @@ final List<Employees> employees = [
       workarea: "C&I Stage 4",
       emailid: "ashishagrawal@ntpc.co.in",
       image: "aa.png",
-      color: Color.fromRGBO(237, 142, 47, 1.0)),
+      color: Color.fromRGBO(217, 217, 217, 1.0)),
   Employees(
       id: 5,
       name: 'Rituraja Singh Rajput',
@@ -86,7 +87,7 @@ final List<Employees> employees = [
       workarea: "C&I Stage 3 and Stage 5",
       emailid: "rsrajput@ntpc.co.in",
       image: "rs.png",
-      color: Color.fromRGBO(88, 90, 59, 1.0)),
+      color: Color.fromRGBO(46, 46, 184, 1.0)),
   Employees(
       id: 6,
       name: 'Rahul Balhara',

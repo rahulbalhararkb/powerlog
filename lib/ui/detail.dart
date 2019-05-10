@@ -9,7 +9,6 @@ class Detail extends StatefulWidget {
   final VoidCallback onAction;
   final CurvedAnimation animation;
 
-  // const Detail({Key key, this.peoples, this.onAction, this.animation}) : super(key: key);
   Detail({this.employee, this.onAction, this.animation});
   @override
   _DetailOfPeople createState() => new _DetailOfPeople();
@@ -57,7 +56,7 @@ class _DetailOfPeople extends State<Detail> {
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.0, vertical: 10.0),
                         child: Text(
-                          "work",
+                          "Employee Number",
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               color: people.color, fontWeight: FontWeight.bold),
@@ -77,7 +76,7 @@ class _DetailOfPeople extends State<Detail> {
                         width: double.infinity,
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.0, vertical: 10.0),
-                        child: Text("About",
+                        child: Text("Work Area",
                             textAlign: TextAlign.left,
                             style: Theme.of(context).textTheme.body2),
                       ),
@@ -95,7 +94,7 @@ class _DetailOfPeople extends State<Detail> {
                         width: double.infinity,
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.0, vertical: 10.0),
-                        child: Text("Word",
+                        child: Text("Email Id",
                             textAlign: TextAlign.left,
                             style: Theme.of(context).textTheme.body2),
                       ),
@@ -105,47 +104,7 @@ class _DetailOfPeople extends State<Detail> {
                             left: 14.0, right: 14.0, bottom: 14.0),
                         child: Text(people.emailid),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          color: people.color.withAlpha(120),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.only(
-                                    left: 14.0, right: 14.0, bottom: 14.0),
-                                child: Text(
-                                  "Quotes",
-                                  textAlign: TextAlign.left,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .body2
-                                      .copyWith(
-                                          color: people.isDark
-                                              ? Colors.white
-                                              : Colors.black),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.only(
-                                    left: 15.0, right: 15.0, bottom: 16.0),
-                                child: Text(
-                                  people.name,
-                                  style: TextStyle(
-                                      color: people.isDark
-                                          ? Colors.white
-                                          : Colors.black),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      
-                      //  PhotoScroller(),
-                      //SizedBox(height: 20.0),
+                     SizedBox(height: 20.0),
                     ],
                   ),
                 ),
