@@ -152,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Peopleworld()));
+                        MaterialPageRoute(builder: (context) => Employeeworld()));
                   },
                   child: Center(
                     child: Column(mainAxisAlignment: MainAxisAlignment.center,

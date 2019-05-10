@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:powerlog/detail.dart';
-import 'package:powerlog/home.dart';
-import 'package:powerlog/peoples.dart';
+import 'package:powerlog/ui/detail.dart';
+import 'package:powerlog/ui/home.dart';
+import 'package:powerlog/model/emp.dart';
 import 'dart:async';
 //import 'package:people/peoples.dart';
 // if we use package to import and it will give error
 
-class Peopleworld extends StatefulWidget {
+class Employeeworld extends StatefulWidget {
   @override
-  _Peopleworldstate createState() => new _Peopleworldstate();
+  _Employeeworldstate createState() => new _Employeeworldstate();
 }
 
 //Calls its callback once per animation frame.
 //To create an AnimationController in a class that uses this mixin,
 // pass vsync: this to the animation controller constructor whenever you create a new animation controller.
-class _Peopleworldstate extends State<Peopleworld>
+class _Employeeworldstate extends State<Employeeworld>
     with TickerProviderStateMixin {
   Map<int, AnimationController> controllerMaps = new Map();
   Map<int, CurvedAnimation> animationMaps = new Map();
 
   @override
   void initState() {
-    peoples.forEach((Peoples people) {
+    employees.forEach((Employees employee) {
       AnimationController _animationController = AnimationController(
           duration: Duration(milliseconds: 200), vsync: this);
       CurvedAnimation _animation = new CurvedAnimation(
           parent: _animationController, curve: Curves.easeIn);
-      controllerMaps[people.id] = _animationController;
+      controllerMaps[employee.id] = _animationController;
       _animationController.addStatusListener((AnimationStatus status) {
         if (status == AnimationStatus.completed) {
-          detailHero(people);
+          detailHero(employee);
         }
       });
-      animationMaps[people.id] = _animation;
+      animationMaps[employee.id] = _animation;
     });
     super.initState();
   }
@@ -53,11 +53,11 @@ class _Peopleworldstate extends State<Peopleworld>
           ),
           body: ListView.builder(
             itemBuilder: (context, index) {
-              Peoples people = peoples[index];
-              AnimationController _controller = controllerMaps[people.id];
-              CurvedAnimation _animation = animationMaps[people.id];
+              Employees employee = employees[index];
+              AnimationController _controller = controllerMaps[employee.id];
+              CurvedAnimation _animation = animationMaps[employee.id];
               return Homeani(
-                people: people,
+                employee: employee,
                 isHeader: false,
                 animation: _animation,
                 onAction: () {
@@ -65,20 +65,20 @@ class _Peopleworldstate extends State<Peopleworld>
                 },
               );
             },
-            itemCount: peoples.length,
+            itemCount: employees.length,
           )),
     );
   }
 
-  void detailHero(Peoples people) {
-    AnimationController _controller = controllerMaps[people.id];
-    CurvedAnimation _curvedAnimation = animationMaps[people.id];
+  void detailHero(Employees employee) {
+    AnimationController _controller = controllerMaps[employee.id];
+    CurvedAnimation _curvedAnimation = animationMaps[employee.id];
     Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) {
                   return Detail(
-                    people: people,
+                    employee: employee,
                     animation: _curvedAnimation,
                     onAction: () {
                       Navigator.pop(context);
