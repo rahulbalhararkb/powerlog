@@ -70,7 +70,7 @@ class FirebaseFirestoreService {
 
     return snapshots;
   }
-/*
+
   Future<dynamic> updateNote(Note note) async {
     final TransactionHandler updateTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(noteCollection.document(note.id));
@@ -103,5 +103,5 @@ class FirebaseFirestoreService {
       print('error: $error');
       return false;
     });
-  }*/
+  }
 }

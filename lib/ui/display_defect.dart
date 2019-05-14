@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:powerlog/model/note.dart';
 import 'package:powerlog/service/firebase_firestore_service.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DisplayDefect extends StatefulWidget {
   final Note note;
@@ -58,27 +58,47 @@ class _DisplayDefectState extends State<DisplayDefect> {
                                       fontSize: 18.0,
                                       fontStyle: FontStyle.italic,
                                       color: Colors.white)),
-                              SizedBox(height: 25.0),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  Expanded(
-                                      child: Text(
-                                        '${widget.note.jobdate}',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                  Expanded(
-                                      child: Text(
-                                        '${widget.note.jobdate}',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                      Expanded(
-                                      child: Text(
-                                        '${widget.note.jobtime}',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                ],
-                              )
+                              SizedBox(height: 10.0),
+                              Text(
+                                  '${widget.note.jobdate}     ${widget.note.jobtime}',
+                                  style: new TextStyle(
+                                      fontSize: 18.0,
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.white)),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Container(
+                                  child: new StreamBuilder(
+                                      stream: Firestore.instance
+                                          .collection('userdata')
+                                          .document(widget.note.uid)
+                                          .snapshots(),
+                                      builder: (context, snapshot) {
+                                        if (!snapshot.hasData)
+                                          return Center(
+                                              child:
+                                                  CircularProgressIndicator());
+                                        return Row(children: <Widget>[
+                                          new Text(
+                                            snapshot.data["employeenumber"],
+                                            style: TextStyle(
+                                                fontSize: 18.0,
+                                                fontStyle: FontStyle.italic,
+                                                color: Colors.white),
+                                          ),
+                                          SizedBox(
+                                            width: 20.0,
+                                          ),
+                                          Text(
+                                            snapshot.data["name"],
+                                            style: TextStyle(
+                                                fontSize: 18.0,
+                                                fontStyle: FontStyle.italic,
+                                                color: Colors.white),
+                                          )
+                                        ]);
+                                      })),
                             ]),
                       ),
                     ),
