@@ -64,17 +64,17 @@ class _DisplayDefectState extends State<DisplayDefect> {
                                 children: <Widget>[
                                   Expanded(
                                       child: Text(
-                                        '${widget.note.jobtimeday}-${widget.note.jobtimemonth}-${widget.note.jobtimeyear}',
+                                        '${widget.note.jobdate}',
+                                        style: TextStyle(color: Colors.white),
+                                      )),
+                                  Expanded(
+                                      child: Text(
+                                        '${widget.note.jobdate}',
                                         style: TextStyle(color: Colors.white),
                                       )),
                                       Expanded(
                                       child: Text(
-                                        '${widget.note.jobtimeday}-${widget.note.jobtimemonth}-${widget.note.jobtimeyear}',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                      Expanded(
-                                      child: Text(
-                                        '${widget.note.jobtimehr}:${widget.note.jobtimemin}:${widget.note.jobtimesec}',
+                                        '${widget.note.jobtime}',
                                         style: TextStyle(color: Colors.white),
                                       )),
                                 ],

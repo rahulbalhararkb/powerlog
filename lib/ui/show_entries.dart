@@ -298,7 +298,7 @@ class _ShowEntriesState extends State<ShowEntries> {
       MaterialPageRoute(
           builder: (context) => AddDefect(
               widget.uid,
-              Note(null, '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+              Note(null, '', '', '', '', '', '', '', '', '', '', 
                   ''))),
     );
   }

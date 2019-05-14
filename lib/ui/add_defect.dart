@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:intl/intl.dart';
 import 'package:powerlog/model/note.dart';
 import 'package:powerlog/service/firebase_firestore_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -473,12 +474,8 @@ class _AddDefectState extends State<AddDefect> {
                                                 _jobtype,
                                                 _jobdetailsController.text,
                                                 _jobremarksController.text,
-                                                DateTime.now().day.toString(),
-                                                DateTime.now().month.toString(),
-                                                DateTime.now().year.toString(),
-                                                DateTime.now().hour.toString(),
-                                                DateTime.now().minute.toString(),
-                                                DateTime.now().second.toString(),
+                                                DateFormat.yMMMd().format(DateTime.now()).toString(),
+                                                DateFormat.Hms().format(DateTime.now()).toString(),
                                                 DateTime.now().toString())
                                             .then((_) {
                                           Navigator.pop(context);

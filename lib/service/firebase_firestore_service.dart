@@ -22,12 +22,8 @@ class FirebaseFirestoreService {
       String jobtype,
       String jobdetails,
       String jobremarks,
-      String jctday,
-      String jctmonth,
-      String jctyear,
-      String jcthr,
-      String jctmin,
-      String jctsec,
+      String jobdate,
+      String jobtime,
       String jtimestamp) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(noteCollection.document());
@@ -42,12 +38,8 @@ class FirebaseFirestoreService {
           jobtype,
           jobdetails,
           jobremarks,
-          jctday,
-          jctmonth,
-          jctyear,
-          jcthr,
-          jctmin,
-          jctsec,
+          jobdate,
+          jobtime,
           jtimestamp);
       final Map<String, dynamic> data = note.toMap();
 
