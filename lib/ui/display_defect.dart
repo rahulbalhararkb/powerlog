@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:powerlog/model/note.dart';
 import 'package:powerlog/service/firebase_firestore_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:powerlog/ui/update_defect.dart';
 
 class DisplayDefect extends StatefulWidget {
   final Note note;
@@ -111,6 +112,26 @@ class _DisplayDefectState extends State<DisplayDefect> {
                         },
                         child: Icon(Icons.arrow_back, color: Colors.white),
                       ),
+                    ),
+                    Positioned(
+                      right: 20.0,
+                      top: 30.0,
+                      child: InkWell(
+                        onTap: () {
+                          _deleteNote(context, widget.note);
+                        },
+                        child: Icon(Icons.delete_forever, color: Colors.white),
+                      ),
+                    ),
+                    Positioned(
+                      right: 80.0,
+                      top: 30.0,
+                      child: InkWell(
+                        onTap: () {
+                          _navigateToEditNote(context, widget.note);
+                        },
+                        child: Icon(Icons.edit, color: Colors.white),
+                      ),
                     )
                   ],
                 ),
@@ -170,4 +191,21 @@ class _DisplayDefectState extends State<DisplayDefect> {
       ),
     );
   }
+
+   void _navigateToEditNote(BuildContext context, Note note) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => UpdateDefect(note)),
+    );
+  }
+
+  void _deleteNote(BuildContext context, Note note) async {
+    db.deleteNote(note.id).then((notes) {
+      Navigator.pop(context);
+    });
+  }
+
+
+
+
 }

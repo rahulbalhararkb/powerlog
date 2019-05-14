@@ -198,6 +198,9 @@ class _ShowEntriesState extends State<ShowEntries> {
                           )
                         ],
                       ),
+                      /* leading: '${items[position].uid}' == widget.uid ? 
+                               IconButton(icon: const Icon(Icons.remove_circle_outline),onPressed: () => _deleteNote(context, items[_filterList[position]], position))
+                               : null,*/
                       trailing: Icon(Icons.keyboard_arrow_right,
                           color: Colors.white, size: 35.0),
                       onTap: () => _navigateToNote(context, items[position]),

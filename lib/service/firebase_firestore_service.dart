@@ -71,11 +71,38 @@ class FirebaseFirestoreService {
     return snapshots;
   }
 
-  Future<dynamic> updateNote(Note note) async {
+  Future<dynamic> updateNote(
+      String id,
+      String uid,
+      String unit,
+      String stage,
+      String area,
+      String jobstatus,
+      String jobtype,
+      String jobdetails,
+      String jobremarks,
+      String jobdate,
+      String jobtime,
+      String jtimestamp) async {
     final TransactionHandler updateTransaction = (Transaction tx) async {
-      final DocumentSnapshot ds = await tx.get(noteCollection.document(note.id));
+      final DocumentSnapshot ds = await tx.get(noteCollection.document(id));
 
-      await tx.update(ds.reference, note.toMap());
+      final Note note = new Note(
+          ds.documentID,
+          uid,
+          unit,
+          stage,
+          area,
+          jobstatus,
+          jobtype,
+          jobdetails,
+          jobremarks,
+          jobdate,
+          jobtime,
+          jtimestamp);
+      final Map<String, dynamic> data = note.toMap();
+
+      await tx.update(ds.reference, data);
       return {'updated': true};
     };
 
