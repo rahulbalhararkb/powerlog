@@ -291,7 +291,7 @@ class _ShowEntriesState extends State<ShowEntries> {
   void _navigateToNote(BuildContext context, Note note) async {
     await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => DisplayDefect(note)),
+      MaterialPageRoute(builder: (context) => DisplayDefect(note,widget.uid)),
     );
   }
 

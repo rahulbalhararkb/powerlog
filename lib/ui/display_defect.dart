@@ -6,7 +6,8 @@ import 'package:powerlog/ui/update_defect.dart';
 
 class DisplayDefect extends StatefulWidget {
   final Note note;
-  DisplayDefect(this.note);
+  final String uid;
+  DisplayDefect(this.note,this.uid);
 
   @override
   State<StatefulWidget> createState() => new _DisplayDefectState();
@@ -120,7 +121,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
                         onTap: () {
                           _deleteNote(context, widget.note);
                         },
-                        child: Icon(Icons.delete_forever, color: Colors.white),
+                        child: widget.uid == widget.note.uid ? Icon(Icons.delete_forever, color: Colors.white) : null,
                       ),
                     ),
                     Positioned(
@@ -130,7 +131,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
                         onTap: () {
                           _navigateToEditNote(context, widget.note);
                         },
-                        child: Icon(Icons.edit, color: Colors.white),
+                        child: widget.uid == widget.note.uid ? Icon(Icons.edit, color: Colors.white) : null,
                       ),
                     )
                   ],
@@ -192,7 +193,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
     );
   }
 
-   void _navigateToEditNote(BuildContext context, Note note) async {
+  void _navigateToEditNote(BuildContext context, Note note) async {
     await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => UpdateDefect(note)),
@@ -204,8 +205,4 @@ class _DisplayDefectState extends State<DisplayDefect> {
       Navigator.pop(context);
     });
   }
-
-
-
-
 }
