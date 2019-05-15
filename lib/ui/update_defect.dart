@@ -483,7 +483,6 @@ class _UpdateDefectState extends State<UpdateDefect> {
                                                 DateTime.now().toString())
                                             .then((_) {
                                           Navigator.pop(context);
-                                          //Navigator.popUntil(context, ModalRoute.withName('/second'));
                                         });
                                          }catch(e){
                                            print('Error: $e');

@@ -197,7 +197,9 @@ class _DisplayDefectState extends State<DisplayDefect> {
     await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => UpdateDefect(note)),
+      
     );
+    Navigator.pop(context);
   }
 
   void _deleteNote(BuildContext context, Note note) async {

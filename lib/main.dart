@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:powerlog/ui/login.dart';
-import 'package:powerlog/ui/show_entries.dart';
 import 'package:powerlog/ui/splase_screen.dart';
 
 
