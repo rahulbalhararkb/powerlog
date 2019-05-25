@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "715017579992",
-    "firebase_url": "https://logbook-83ccc.firebaseio.com",
-    "project_id": "logbook-83ccc",
-    "storage_bucket": "logbook-83ccc.appspot.com"
+    "project_number": "692898241368",
+    "firebase_url": "https://logbook-24d98.firebaseio.com",
+    "project_id": "logbook-24d98",
+    "storage_bucket": "logbook-24d98.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:715017579992:android:5eadefccbdf5a494",
+        "mobilesdk_app_id": "1:692898241368:android:5eadefccbdf5a494",
         "android_client_info": {
           "package_name": "com.abonline.powerlog"
         }
       },
       "oauth_client": [
         {
-          "client_id": "715017579992-u34g7tqpnvi1kgskbngdkrqkvinv2313.apps.googleusercontent.com",
+          "client_id": "692898241368-2q696q10s7e6hiiai4ffnl4d6acurv02.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abonline.powerlog",
+            "certificate_hash": "bcd44debdcdf6dbba2969d87ea4fbf3862821bfd"
+          }
+        },
+        {
+          "client_id": "692898241368-6vjc68bh9ek288mgr4rrtisgskver2vh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBvrdwrMv5Hqfzqzf3NwFk-5F-4cFmE4aA"
+          "current_key": "AIzaSyA6XcO1EV0Qf3uezkDOvb5i8l31hPHjaT4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "715017579992-u34g7tqpnvi1kgskbngdkrqkvinv2313.apps.googleusercontent.com",
+              "client_id": "692898241368-6vjc68bh9ek288mgr4rrtisgskver2vh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
