@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:powerlog/ui/test.dart';
+import 'package:powerlog/ui/show_entries.dart';
 
 class ShowFilterEntries extends StatefulWidget {
   ShowFilterEntries({Key key, this.uid}) : super(key: key);
@@ -41,6 +41,44 @@ class _ShowFilterEntriesState extends State<ShowFilterEntries> {
           shrinkWrap: true,
           //crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(
+                  top: 20.0, left: 10.0, right: 10.0, bottom: 10.0),
+              child: Material(
+                borderRadius: BorderRadius.circular(20.0),
+                shadowColor: Colors.blueAccent,
+                color: Color.fromRGBO(64, 75, 96, .9),
+                elevation: 7.0,
+                child: GestureDetector(
+                  onTap: () {
+                     Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ListJob(widget.uid,'ALL')));
+                  },
+                  child: Center(
+                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                        //crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Icon(
+                            Icons.search,
+                            color: Colors.white,
+                            size: 50.0,
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          Text(
+                            'ALL JOB',
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                          ),
+                        ]),
+                  ),
+                ),
+              ),
+            ),
             Container(
               padding: EdgeInsets.only(
                   top: 20.0, left: 10.0, right: 10.0, bottom: 10.0),

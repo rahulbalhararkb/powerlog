@@ -4,7 +4,6 @@ import 'package:powerlog/ui/employee.dart';
 import 'package:powerlog/ui/filter_list.dart';
 import 'package:powerlog/ui/note_list.dart';
 import 'package:powerlog/ui/new_feature.dart';
-import 'package:powerlog/ui/show_entries.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.auth, this.userId, this.onSignedOut})
@@ -71,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ShowEntries(
+                            builder: (context) => ShowFilterEntries(
                                   uid: widget.userId,
                                 )));
                   },
@@ -100,51 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  top: 20.0, left: 10.0, right: 10.0, bottom: 10.0),
-              height: 100.0,
-              width: 100.0,
-              child: Material(
-                borderRadius: BorderRadius.circular(20.0),
-                shadowColor: Colors.blueAccent,
-                color: Color.fromRGBO(64, 75, 96, .9),
-                elevation: 7.0,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ShowFilterEntries(
-                                  uid: widget.userId,
-                                )));
-                  },
-                  child: Center(
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                        //crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          Icon(
-                            Icons.library_books,
-                            color: Colors.white,
-                            size: 50.0,
-                          ),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          Text(
-                            'FILTER',
-                            style: TextStyle(
-                          
-                                fontSize: 20.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat'),
-                          ),
-                        ]),
-                  ),
-                ),
-              ),
-            ),
+           
             Container(
               padding: EdgeInsets.only(
                   top: 20.0, left: 10.0, right: 10.0, bottom: 10.0),
