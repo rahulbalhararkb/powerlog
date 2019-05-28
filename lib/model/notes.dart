@@ -5,18 +5,22 @@ class Note {
   String _date;
   int _priority, _color;
 
-  Note(this._title, this._date, this._priority, this._color,
-      [this._description]);
+  Note(this._title, 
+       this._date, 
+       this._priority, 
+       this._color,
+       [this._description]);
 
-  Note.withId(this._id, this._title, this._date, this._priority, this._color,
-      [this._description]);
+  Note.withId(this._id, 
+              this._title, 
+              this._date, 
+              this._priority, 
+              this._color,
+              [this._description]);
 
   int get id => _id;
-
   String get title => _title;
-
   String get description => _description;
-
   int get priority => _priority;
   int get color => _color;
   String get date => _date;

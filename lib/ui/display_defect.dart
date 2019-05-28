@@ -119,7 +119,7 @@ class _DisplayDefectState extends State<DisplayDefect> {
                       top: 30.0,
                       child: InkWell(
                         onTap: () {
-                          _deleteNote(context, widget.note);
+                          showDeleteDialog(context);
                         },
                         child: widget.uid == widget.note.uid ? Icon(Icons.delete_forever, color: Colors.white) : null,
                       ),
@@ -202,9 +202,64 @@ class _DisplayDefectState extends State<DisplayDefect> {
     Navigator.pop(context);
   }
 
+  void moveToLastScreen() {
+    Navigator.pop(context, true);
+  }
+
+  void showDeleteDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10.0))),
+          title: Text(
+            "Delete Note?",
+            style: TextStyle(
+                fontFamily: 'Sans',
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontSize: 20),
+          ),
+          content: Text("Are you sure you want to delete this note?",
+              style: TextStyle(
+                  fontFamily: 'Sans',
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black,
+                  fontSize: 18)),
+          actions: <Widget>[
+            FlatButton(
+              child: Text("No",
+                  style: TextStyle(
+                      fontFamily: 'Sans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                      fontSize: 20)),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: Text("Yes",
+                  style: TextStyle(
+                      fontFamily: 'Sans',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                      fontSize: 20)),
+              onPressed: () {
+                Navigator.of(context).pop();
+                _deleteNote(context, widget.note);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void _deleteNote(BuildContext context, Note note) async {
     db.deleteNote(note.id).then((notes) {
-      Navigator.pop(context);
+      moveToLastScreen();
     });
   }
 }
